@@ -1,4 +1,6 @@
 ﻿
+using ExcludedCode;
+
 using Machine.Specifications;
 using MyCode;
 
@@ -40,6 +42,19 @@ namespace MySpecs
         It should_result_in_two = () => Result.ShouldEqual(2);
 
         private static Calculator Calculator;
+        private static int Result;
+    }
+
+    [Subject("Awesomeness using node.js grunt test runner"), Tags("nodejs", "grunt")]
+    public class When_Calling_An_Excluded_Method
+    {
+        Establish context = () => Excluded = new ExcludedClass();
+
+        Because of = () => Result = Excluded.Foo();
+
+        It should_result_in_42 = () => Result.ShouldEqual(42);
+
+        private static ExcludedClass Excluded;
         private static int Result;
     }
 }

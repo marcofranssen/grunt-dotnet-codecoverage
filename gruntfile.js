@@ -36,7 +36,10 @@ module.exports = function(grunt) {
                 target: 'test/src/packages/Machine.Specifications.0.6.2/tools/mspec-clr4.exe',
                 output: 'reports/codecoverage',
                 registerUser: true,
-                reportTypes: ['html', 'xml']
+                reportTypes: ['html', 'xml'],
+                filter: '+[MyCode]*',
+                excludebyattribute: ['System.SerializableAttribute', 'System.SerializableAttribute'],
+                targetargs: ['--xml ./reports/TestResults.xml', '--html ./reports/TestResults.html']
             },
             specs: {
                 src: ['test/src/**/bin/Debug/*Specs.dll']

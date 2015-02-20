@@ -23,6 +23,12 @@ var path = require('path'),
             return '"' + file.src + '"';
         });
 
+        if(options.filter) {
+            args.push('-filter:"' + options.filter + '"');
+        }
+        if(options.excludebyattribute) {
+            args.push('"-excludebyattribute:"' + options.excludebyattribute.join('" "') + '""');
+        }
         if (options.registerUser) {
             args.push('-register:user');
         }
@@ -33,6 +39,9 @@ var path = require('path'),
             }
             target = options.target;
             args.push('"-target:"' + target + '""');
+        }
+        if(options.targetargs) {
+            args.push('"-targetargs:' + options.targetargs.join(' ') + '"');
         }
         if (assemblies) {
             args.push('"-targetargs:"' + assemblies.join('" "') + '""');
