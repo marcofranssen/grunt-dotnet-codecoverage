@@ -55,6 +55,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ExcludedCode\ExcludedCode.csproj">
+      <Project>{561E6903-5543-4B1D-BF49-227223CF16EA}</Project>
+      <Name>ExcludedCode</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyCode\MyCode.csproj">
       <Project>{AEC19BBF-1211-4935-991E-97AD7F91DBDA}</Project>
       <Name>MyCode</Name>
