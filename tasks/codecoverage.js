@@ -20,7 +20,7 @@ var path = require('path'),
         }
         opencover = opencover.replace(/\\/g, path.sep);
         var assemblies = files.map(function(file) {
-            return '"' + file.src + '"';
+            return  file.src;
         });
 
         if (options.registerUser) {
@@ -34,8 +34,8 @@ var path = require('path'),
             target = options.target;
             args.push('"-target:"' + target + '""');
         }
-        if (assemblies) {
-            args.push('"-targetargs:"' + assemblies.join('" "') + '""');
+        if (assemblies) {			
+            args.push('"-targetargs:' + assemblies.join(' ') + ' ' + options.additionalTargetArgs + '" ' + options.additionalTargetParameters);
         }
         if (options.output) {
             var filePath = path.join(process.cwd(), options.output);

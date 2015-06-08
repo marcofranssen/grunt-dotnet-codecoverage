@@ -96,6 +96,28 @@ grunt.initConfig({
 });
 ```
 
+nunit
+```js
+grunt.initConfig({
+  codecoverage: {
+    options: {
+      opencoverExe: 'test/src/packages/OpenCover.4.5.2316/OpenCover.Console.exe',
+      reportGeneratorExe: 'test/src/packages/ReportGenerator.1.9.1.0/ReportGenerator.exe',
+      target: 'packages/NUnit.Runners.2.6.4/tools/nunit-console.exe',    
+      additionalTargetArgs: '/noshadow',
+      additionalTargetParameters: '-filter:"+[MyCode]*"',
+      output: 'reports/codecoverage',
+      registerUser: true,
+      reportTypes: ['html', 'xml']
+    },
+    specs: {
+      src: ['test/src/**/bin/Debug/*Specs.dll']
+    }
+  },
+});
+
+```
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
